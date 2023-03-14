@@ -1,4 +1,10 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import Header from '@/components/Header';
+import ProfessionalSummary from '@/components/ProfessionalSummary';
+import { ResumeContext, initialResume } from '@/context/ResumeContext';
+import Experience from '@/components/Experience';
+import Education from '@/components/Education';
+import Skills from '@/components/Skills';
 
 export default function Home() {
   return (
@@ -10,7 +16,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        Howdy!
+        <ResumeContext.Provider value={initialResume}>
+          <Header />
+          <ProfessionalSummary />
+          <Experience />
+          <Education />
+          <Skills />
+        </ResumeContext.Provider>
       </main>
     </>
   )

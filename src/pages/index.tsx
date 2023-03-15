@@ -18,13 +18,16 @@ export default function Home() {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <main>
+      
+      <main className=''>
         <ResumeContext.Provider value={initialResume}>
           <Header />
-          <ProfessionalSummary />
-          <Experience />
-          <Education />
-          <Skills />
+          <div className='resume-body'>
+            <ProfessionalSummary />
+            <Experience />
+            <Education />
+            <Skills />
+          </div>
         </ResumeContext.Provider>
       </main>
     </>

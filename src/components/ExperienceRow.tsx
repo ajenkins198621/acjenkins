@@ -10,7 +10,7 @@ export default function ExperienceRow({ employmentHistory }: IProps): JSX.Elemen
     const  { startDate, endDate, location, company, title, bullets } = employmentHistory;
 
     return (
-        <div>
+        <>
             <p>
                 {title}, {company}
             </p>
@@ -23,7 +23,7 @@ export default function ExperienceRow({ employmentHistory }: IProps): JSX.Elemen
                     bullets.map((bullet, idx) => (<li key={idx}>{bullet}</li>))
                 }
             </ul>
-        </div>
+        </>
 
     )
 };

@@ -1,8 +1,11 @@
-body {
-  padding: 0;
-  margin: 0;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+header {
+  height: 150px;
+}
+
+.resume-body {
+  padding-top: 150px;
+}

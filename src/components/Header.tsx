@@ -5,10 +5,9 @@ export default function Header() : JSX.Element {
 
     const resumeContext = useContext<IResume>(ResumeContext);
 
-    console.log(resumeContext.links);
     return (
         <div>
-            <h1>{resumeContext.name}</h1>
+            <h1 className='text-2xl'>{resumeContext.name}</h1>
             <h2>{resumeContext.title}</h2>
             <p>
                 {resumeContext.address.city}, {resumeContext.address.state}

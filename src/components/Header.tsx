@@ -7,7 +7,7 @@ export default function Header(): JSX.Element {
 
     return (
         <header className='bg-sky-700 border-sky-900 drop-shadow-xl fixed w-full'>
-            <div className='container mx-auto py-4 mb-12 text-sky-400 font-bold'>
+            <div className='container py-4 mb-12 text-sky-400 font-bold'>
                 <h1 className='text-5xl text-sky-100 font-black -mb-2'>
                     {resumeContext.name}
                 </h1>

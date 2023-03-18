@@ -11,9 +11,7 @@ export default function Section({ children, title }: { children: React.ReactNode
 
                 </div>
                 <div className="border-t border-gray-200">
-                    <div className="px-5 py-5">
-                        {children}
-                    </div>
+                    {children}
                 </div>
             </div>
         </div>

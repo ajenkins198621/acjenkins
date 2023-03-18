@@ -11,10 +11,11 @@ export default function Experience(): JSX.Element {
         >
             <div>
                 {
-                    resumeContext.employmentHistory.map((employmentHistory) => (
+                    resumeContext.employmentHistory.map((employmentHistory, idx) => (
                         <ExperienceRow
                             key={employmentHistory.company}
                             employmentHistory={employmentHistory}
+                            isEven={idx % 2 === 0}
                         />
                     ))
                 }

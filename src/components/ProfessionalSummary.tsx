@@ -9,7 +9,9 @@ export default function ProfessionalSummary(): JSX.Element {
         <Section
             title="Profile"
         >
-            {resumeContext.professionalSummary}
+            <div className="p-6">
+                {resumeContext.professionalSummary}
+            </div>
         </Section>
     )
 

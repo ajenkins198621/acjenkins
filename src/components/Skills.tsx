@@ -9,7 +9,7 @@ export default function Skills(): JSX.Element {
         <Section
             title="Skills"
         >
-            <>
+            <div className="flex flex-wrap p-6">
                 {
                     resumeContext.skills.map((skill) => (
                         <SkillRow
@@ -19,7 +19,7 @@ export default function Skills(): JSX.Element {
                     ))
                 }
 
-            </>
+            </div>
         </Section>
     )
 }

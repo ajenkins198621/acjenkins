@@ -9,9 +9,11 @@ export default function SkillRow({ skill }: IProps): JSX.Element {
     const { name, level } = skill;
 
     return (
-        <div>
-            <p>{name}</p>
-            <p>{level}</p>
+        <div className="w-1/4 text-center">
+            <div className="m-2 py-6 border rounded">
+            <p className="text-lg font-bold text-amber-800">{name}</p>
+            <em className="text-sm">{level}</em>
+            </div>
         </div>
     )
 };

@@ -47,6 +47,7 @@ export const initialResume: IResume = {
         state: "CO"
     },
     links: [
+        // TODO ADD MEDIUM & TWITTER
         {
             name: "LinkedIn",
             url: "https://xyz.com"

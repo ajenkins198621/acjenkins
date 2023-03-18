@@ -2,16 +2,19 @@ import React from "react";
 
 export default function Section({ children, title }: { children: React.ReactNode, title: string }): JSX.Element {
     return (
-        <div className="mb-12">
-            <div className="bg-gray-200 h-16 flex items-center mb-4">
-                <div className="container">
+        <div className="container my-12">
+            <div className="overflow-hidden bg-white shadow sm:rounded-lg">
+                <div className="px-4 py-5 sm:px-6">
                     <h2 className="text-3xl font-thin">
                         {title}
                     </h2>
+
                 </div>
-            </div>
-            <div className="container mb-8">
-                {children}
+                <div className="border-t border-gray-200">
+                    <div className="px-5 py-5">
+                        {children}
+                    </div>
+                </div>
             </div>
         </div>
     )

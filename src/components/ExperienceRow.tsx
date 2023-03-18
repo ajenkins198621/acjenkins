@@ -7,23 +7,30 @@ interface IProps {
 
 export default function ExperienceRow({ employmentHistory }: IProps): JSX.Element {
 
-    const  { startDate, endDate, location, company, title, bullets } = employmentHistory;
+    const { startDate, endDate, location, company, title, bullets } = employmentHistory;
 
     return (
-        <>
-            <p>
-                {title}, {company}
-            </p>
-            <p>
-                {startDate} - {endDate}<br />
-                {location}
-            </p>
-            <ul>
-                {
-                    bullets.map((bullet, idx) => (<li key={idx}>{bullet}</li>))
-                }
-            </ul>
-        </>
+        <div className="mb-12">
+            <div className="flex">
+                <div className="flex flex-col">
+                    <h3 className="text-lg font-bold">
+                        {title}<br />{company}
+                    </h3>
+                    <p>{startDate} - {endDate}</p>
+                    <p>{location}</p>
+
+                </div>
+                <ul className="list-disc ml-8">
+                    {
+                        bullets.map((bullet, idx) => (
+                            <li key={idx} className="mb-4">
+                                {bullet}
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
 
     )
 };

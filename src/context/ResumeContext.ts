@@ -1,3 +1,6 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faFile } from '@fortawesome/free-solid-svg-icons';
 import { createContext } from 'react';
 
 export interface IResume {
@@ -10,6 +13,7 @@ export interface IResume {
     links: {
         name: string;
         url: string;
+        icon: IconProp
     }[];
     professionalSummary: string;
     employmentHistory: IEmploymentHistory[];
@@ -50,12 +54,20 @@ export const initialResume: IResume = {
         // TODO ADD MEDIUM & TWITTER
         {
             name: "LinkedIn",
-            url: "https://xyz.com"
+            url: "https://www.linkedin.com/in/austincjenkins/",
+            icon: faLinkedin
         },
         {
             name: "GitHub",
-            url: "https://xyz.com"
+            url: "https://github.com/ajenkins198621",
+            icon: faGithub
+        },
+        {
+            name: "Resume",
+            url: "https://resume.io/r/3wlNvJLMB",
+            icon: faFile
         }
+
     ],
     professionalSummary: "Highly motivated Full Stack Web Developer with over 10 years of experience in web application development. A results-driven professional, dedicated to writing clean and maintainable code that emphasizes performance and scalability. Recognized for the ability to work collaboratively with cross-functional teams across all areas of an organization, both large and small, to ensure successful project outcomes. As a passionate self-starter, is eager to apply experience and knowledge to become a valuable contributor to a growth-stage startup, driving innovation and delivering high-quality solutions.",
     employmentHistory: [

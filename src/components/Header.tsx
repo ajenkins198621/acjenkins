@@ -35,7 +35,7 @@ export default function Header(): JSX.Element {
                     </div>
                     <div className='lg:hidden'>
                         <div
-                            className="space-y-1.5"
+                            className="space-y-1.5 cursor-pointer"
                             onClick={() => dispatch({ type: 'TOGGLE_MOBILE_MENU' })}
                         >
                             <span className="block rounded h-1 w-8 animate-pulse bg-sky-400"></span>

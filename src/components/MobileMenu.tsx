@@ -1,21 +1,24 @@
 import React, { useContext } from 'react';
 import { SiteContext } from '@/context/siteContext';
+import { IResume, ResumeContext } from '@/context/ResumeContext';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function useMobileMenu() {
     const { state, dispatch } = useContext<any>(SiteContext);
+    const { links } = useContext<IResume>(ResumeContext);
     const { isMobileMenuOpen } = state;
 
     return {
         isMobileMenuOpen,
+        links,
         dispatch
     }
 }
 
 export default function MobileMenu(): JSX.Element {
 
-    const { isMobileMenuOpen, dispatch } = useMobileMenu();
+    const { isMobileMenuOpen, dispatch, links } = useMobileMenu();
 
     const toggleMobileMenu = () => dispatch({ type: 'TOGGLE_MOBILE_MENU' });
 
@@ -27,14 +30,29 @@ export default function MobileMenu(): JSX.Element {
         >
             <div
                 className={`fixed lg:hidden top-0 right-0 shadow-xl w-3/4 h-full bg-white z-20 ${isMobileMenuOpen ? 'block' : 'hidden'}`}
-                onClick={(e) => e.stopPropagation()}                       
+                onClick={(e) => e.stopPropagation()}
             >
                 <a
                     onClick={toggleMobileMenu}
-                    className="absolute top-0 right-0 p-4 cursor:pointer"
+                    className="absolute top-6 right-6 cursor:pointer"
                 >
-                    <FontAwesomeIcon className='w-8 h-8 text-gray-700 hover:text-gray-900' icon={faX} />
+                    <FontAwesomeIcon className='w-10 h-10 text-gray-400 focus:text-gray-700' icon={faX} />
                 </a>
+                <ul className='flex flex-col h-full w-full mt-16'>
+
+                    {links.map((link, index) => (
+                        <li key={index} className='my-3'>
+                            <a
+                                href={link.url}
+                                className='pl-4 py-3 text-2xl font-bold text-sky-700 focus:text-sky-900 flex items-center w-full focus:bg-sky-200'
+                                onClick={toggleMobileMenu}
+                            >
+                                <FontAwesomeIcon className='w-8 h-8 mr-2' icon={link.icon} />
+                                {link.name}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
 

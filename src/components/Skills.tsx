@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { ResumeContext } from "@/context/ResumeContext";
+import { IResume, ResumeContext } from "@/context/ResumeContext";
 import SkillRow from "./SkillRow";
 import Section from "./Section";
 
 export default function Skills(): JSX.Element {
-    const resumeContext = useContext(ResumeContext);
+    const resumeContext = useContext<IResume>(ResumeContext);
     return (
         <Section
             title="Skills"

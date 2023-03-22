@@ -2,7 +2,7 @@ import { createContext, useReducer } from "react"
 import reducer, { initialState } from "./reducer";
 import { Action } from "./reducer";
 
-export const SiteContext = createContext();
+export const SiteContext = createContext<any>({} as any);
 
 export const SiteProvider = ({ children } : {
     children: React.ReactNode

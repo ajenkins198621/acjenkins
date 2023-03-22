@@ -1,22 +1,49 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { IResume, ResumeContext } from '@/context/ResumeContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { SiteContext } from '@/context/siteContext';
 
-export default function Header(): JSX.Element {
+
+function useHeader() {
+    const { dispatch } = useContext<any>(SiteContext);
 
     const resumeContext = useContext<IResume>(ResumeContext);
 
+    return {
+        resumeContext,
+        dispatch
+    }
+}
+
+
+export default function Header(): JSX.Element {
+
+    const {
+        resumeContext,
+        dispatch
+    } = useHeader();
+
     return (
-        <header className='sticky top-0 z-50 bg-sky-700 border-sky-900 drop-shadow-xl w-full'>
+        <header className='sticky top-0 z-10 bg-sky-700 border-sky-900 drop-shadow-xl w-full'>
             <div className='container py-4 mb-12 text-sky-400 font-bold'>
-                <div className='flex justify-between items-end'>
+                <div className='flex justify-between items-center lg:items-end'>
                     <div>
-                        <h1 className='text-5xl text-sky-100 font-black -mb-2'>
+                        <h1 className='text-3xl lg:text-5xl text-sky-100 font-black -mb-2'>
                             {resumeContext.name}
                         </h1>
-                        <h2 className='text-xl'>{resumeContext.title}</h2>
+                        <h2 className='lg:text-xl'>{resumeContext.title}</h2>
                     </div>
-                    <div className="flex space-x-4">
+                    <div className='lg:hidden'>
+                        <div
+                            className="space-y-1.5"
+                            onClick={() => dispatch({ type: 'TOGGLE_MOBILE_MENU' })}
+                        >
+                            <span className="block rounded h-1 w-8 animate-pulse bg-sky-400"></span>
+                            <span className="block rounded h-1 w-8 animate-pulse bg-sky-400"></span>
+                            <span className="block rounded h-1 w-8 animate-pulse bg-sky-400"></span>
+                        </div>
+                    </div>
+                    <div className="hidden lg:flex space-x-4">
                         {
                             resumeContext.links.map(({ name, url, icon }) => (
                                 <a

@@ -5,6 +5,8 @@ import { ResumeContext, initialResume } from '@/context/ResumeContext';
 import Experience from '@/components/Experience';
 import Education from '@/components/Education';
 import Skills from '@/components/Skills';
+import MobileMenu from '@/components/MobileMenu';
+import { SiteProvider } from '@/context/siteContext';
 
 export default function Home() {
   return (
@@ -18,17 +20,20 @@ export default function Home() {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      
+
       <main className=''>
-        <ResumeContext.Provider value={initialResume}>
-          <Header />
-          <div className='resume-body'>
-            <ProfessionalSummary />
-            <Experience />
-            <Education />
-            <Skills />
-          </div>
-        </ResumeContext.Provider>
+        <SiteProvider>
+          <ResumeContext.Provider value={initialResume}>
+            <MobileMenu />
+            <Header />
+            <div className='resume-body'>
+              <ProfessionalSummary />
+              <Experience />
+              <Education />
+              <Skills />
+            </div>
+          </ResumeContext.Provider>
+        </SiteProvider>
       </main>
     </>
   )

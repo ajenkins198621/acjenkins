@@ -28,8 +28,10 @@ export default function Header(): JSX.Element {
             <div className='container py-4 mb-12 text-sky-400 font-bold'>
                 <div className='flex justify-between items-center lg:items-end'>
                     <div>
-                        <h1 className='text-3xl lg:text-5xl text-sky-100 font-black -mb-2'>
-                            {resumeContext.name}
+                        <h1 className='text-3xl lg:text-5xl text-sky-100 font-black -mb-2 flex items-center'>
+                            <span className='text-3xl mr-1'>&lt;</span>
+                            {resumeContext.name.replace(' ', '')}
+                            <span className='text-3xl ml-1'>/&gt;</span>
                         </h1>
                         <h2 className='lg:text-xl'>{resumeContext.title}</h2>
                     </div>

@@ -1,3 +1,4 @@
+import React from 'react';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
@@ -15,7 +16,6 @@ export interface IResume {
         url: string;
         icon: IconProp
     }[];
-    professionalSummary: string;
     employmentHistory: IEmploymentHistory[];
     education: IEducation[];
     skills: ISkill[];
@@ -45,7 +45,7 @@ export interface ISkill {
 
 export const initialResume: IResume = {
     name: "Austin Jenkins",
-    title: "Senior Full Stack Web Developer",
+    title: "Senior {Front-end & Full Stack} Web Developer",
     address: {
         city: "Denver",
         state: "CO"
@@ -69,7 +69,6 @@ export const initialResume: IResume = {
         }
 
     ],
-    professionalSummary: "Highly motivated Full Stack Web Developer with over 10 years of experience in web application development. A results-driven professional, dedicated to writing clean and maintainable code that emphasizes performance and scalability. Recognized for the ability to work collaboratively with cross-functional teams across all areas of an organization, both large and small, to ensure successful project outcomes. As a passionate self-starter, is eager to apply experience and knowledge to become a valuable contributor to a growth-stage startup, driving innovation and delivering high-quality solutions.",
     employmentHistory: [
         {
             startDate: "Oct 2021",
@@ -78,11 +77,11 @@ export const initialResume: IResume = {
             company: "Vail Resorts",
             title: "Senior Lead Front-end Engineer",
             bullets: [
-                "Spearheaded the front-end development project for the integration of three new resort sites to the Vail Resorts portfolio, utilizing ReactJS and custom CSS/LESS, to deliver a seamless and intuitive user experience.",
-                "Collaborated with cross-functional teams, including product owners, management, infrastructure and QA to generate a new JavaScript Digital Data Object which could be read by multiple third party services.",
-                "Implemented large-scale A/B tests across the lessons, checkout and resulting in incremental revenues in excess of millions of dollars.",
-                "Refactored legacy jQuery, RequireJS and HTML templates to modern ReactJS components, leveraging React's Context API for efficient state management, resulting in a more maintainable and scalable codebase.",
-                "Updated analytics platform to utilize Webpack and TypeScript from Vanilla JavaScript to enhance performance and maintainability."
+                "Spearheaded the front-end development project for three new resort sites joining the Vail Resorts portfolio. Utilized ReactJS and custom CSS/LESS to create an unforgettable user experience that'll have you screaming \"woohoo!\" from the mountaintop.",
+                "Collaborated with cross-functional teams, including product owners, management, infrastructure, and QA, to create a new JavaScript Digital Data Object. This bad boy can be read by multiple third-party services, so we can all get on the same page and make it rain.",
+                "Implemented some seriously slick A/B tests across our lessons, checkout, and more. These tests resulted in incremental revenues totaling millions of dollars! Cue the confetti.",
+                "Refactored some old, crusty code (a.k.a. legacy jQuery, RequireJS, and HTML templates) to modern, sleek ReactJS components. We even used React's Context API for super-efficient state management, making our codebase much more maintainable and scalable.",
+                "We kicked our analytics platform up a notch by switching over to Webpack and TypeScript. These upgrades enhanced our performance and maintainability, and boy, do we love a good upgrade!"
             ]
         },
         {

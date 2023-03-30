@@ -18,20 +18,32 @@ function useHeader() {
 
 export default function Header(): JSX.Element {
 
+    const [isHovered, setIsHovered] = useState<boolean>(false);
+
     const {
         resumeContext,
         dispatch
     } = useHeader();
 
     return (
-        <header className='sticky top-0 z-10 bg-sky-700 border-sky-900 drop-shadow-xl w-full'>
+        <header className='sticky top-0 z-10 bg-gradient-to-bl from-sky-500 to-sky-700 border-sky-900 drop-shadow-xl w-full'>
             <div className='container py-4 mb-12 text-sky-400 font-bold'>
                 <div className='flex justify-between items-center lg:items-end'>
                     <div>
-                        <h1 className='text-3xl lg:text-5xl text-sky-100 font-black -mb-2 flex items-center'>
-                            <span className='text-3xl mr-1'>&lt;</span>
-                            {resumeContext.name.replace(' ', '')}
-                            <span className='text-3xl ml-1'>/&gt;</span>
+                        <h1
+                            className='text-3xl lg:text-5xl text-sky-100 font-black -mb-2 flex items-center'
+                            onMouseOver={() => {
+                                setIsHovered(true);
+                            }}
+                            onMouseLeave={() => {
+                                setIsHovered(false);
+                            }}
+                        >
+                            <div className='relative'>
+                                <span className={`text-3xl -ml-6 mt-2 transition-all ease-linear absolute ${isHovered ? '-ml-8' : ''}`}>&lt;</span>
+                                {resumeContext.name.replace(' ', '')}
+                                <span className={`text-3xl ml-2 mt-2 transition-all ease-linear absolute ${isHovered ? 'ml-4' : ''}`}>/&gt;</span>
+                            </div>
                         </h1>
                         <h2 className='lg:text-xl'>{resumeContext.title}</h2>
                     </div>

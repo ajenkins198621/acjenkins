@@ -13,7 +13,7 @@ export default function ProfessionalSummary(): JSX.Element {
             <div className="p-4 lg:p-6 flex flex-col lg:flex-row">
                 <div className="w-full lg:w-1/4">
                     <Image
-                        className="rounded-full w-32 h-32 lg:w-48 lg:h-48 mx-auto mb-4"
+                        className="rounded-full w-64 h-64 lg:w-64 lg:h-64 mx-auto mb-4"
                         src={'/headshot.png'}
                         alt='Austin Jenkins headshot'
                         width={300}

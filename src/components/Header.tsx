@@ -40,9 +40,21 @@ export default function Header(): JSX.Element {
                             }}
                         >
                             <div className='relative'>
-                                <span className={`text-3xl -ml-6 mt-2 transition-all ease-linear absolute ${isHovered ? '-ml-8' : ''}`}>&lt;</span>
+                                <span
+                                    className={
+                                        `text-2xl lg:text-3xl -ml-5 mt-0.5 lg:-ml-6 lg:mt-2 transition-all ease-linear absolute ${isHovered ? '-ml-7 lg:-ml-8' : ''}`
+                                    }
+                                >
+                                    &lt;
+                                </span>
                                 {resumeContext.name.replace(' ', '')}
-                                <span className={`text-3xl ml-2 mt-2 transition-all ease-linear absolute ${isHovered ? 'ml-4' : ''}`}>/&gt;</span>
+                                <span
+                                    className={
+                                        `text-2xl lg:text-3xl ml-1 mt-0.5 lg:ml-2 lg:mt-2 transition-all ease-linear absolute ${isHovered ? 'ml-3 lg:ml-4' : ''}`
+                                    }
+                                >
+                                    /&gt;
+                                </span>
                             </div>
                         </h1>
                         <h2 className='lg:text-xl'>{resumeContext.title}</h2>

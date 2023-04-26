@@ -61,10 +61,10 @@ export async function getStaticProps() {
   const getResumePageData = async () => {
       const query = `
       {
-        professionalExperiencesCollection {
+        professionalExperiencesCollection(order: order_ASC) {
           items {
             cardImage {
-              fileName
+              url
             },
             jobTitle,
             company,
@@ -73,7 +73,8 @@ export async function getStaticProps() {
             location,
             description {
               json
-            }
+            },
+            order
           }
         },
         generalInformation(id: "21GLau1E9jwEZSyhbyDYWO") {

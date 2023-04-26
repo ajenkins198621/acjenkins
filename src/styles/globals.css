@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.professional_summary p {
+.professional_summary p, .professional_experience li {
     margin-bottom: 1rem;
 }
 
-.professional_summary p:last-child {
+.professional_summary p:last-child, .professional_experience li:last-child {
     margin-bottom: 0;
 }

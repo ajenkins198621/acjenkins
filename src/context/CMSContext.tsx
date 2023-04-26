@@ -1,7 +1,9 @@
 import { createContext } from 'react';
 
 export type CMSContextType = {
-    professionalExperiences: any[],
+    professionalExperiencesCollection: {
+        items: ProfessionalExperience[]
+    },
     generalInformation: {
         name: string,
         tagline: string,
@@ -15,8 +17,24 @@ export type CMSContextType = {
     },
 }
 
+export type ProfessionalExperience = {
+    cardImage: {
+        url: string,
+    },
+    jobTitle: string,
+    company: string,
+    startDate: string,
+    endDate: string,
+    location: string,
+    description: {
+        json: any,
+    },
+}
+
 const defaultState : CMSContextType = {
-    professionalExperiences: [],
+    professionalExperiencesCollection: {
+        items: []
+    },
     generalInformation: {
         name: '',
         tagline: '',

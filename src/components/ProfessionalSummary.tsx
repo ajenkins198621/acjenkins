@@ -23,7 +23,7 @@ export default function ProfessionalSummary(): JSX.Element {
                 </div>
                 <div className="w-full lg:w-3/4">
                     {
-                        documentToReactComponents(aboutMe.json)
+                        documentToReactComponents(aboutMe.json as any)
                     }
                 </div>
             </div>

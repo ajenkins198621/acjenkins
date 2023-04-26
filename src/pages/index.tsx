@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Header from '@/components/Header';
 import ProfessionalSummary from '@/components/ProfessionalSummary';
 import { ResumeContext, initialResume } from '@/context/ResumeContext';
-import { CMSContext } from '@/context/CMSContext';
+import { CMSContext, CMSContextType } from '@/context/CMSContext';
 import Experience from '@/components/Experience';
 import Education from '@/components/Education';
 import Skills from '@/components/Skills';
@@ -11,14 +11,11 @@ import { SiteProvider } from '@/context/siteContext';
 import { AssetFields, createClient  } from 'contentful';
 
 type Props = {
-  cmsData: {[key: string] : AssetFields[]};
+  cmsData: CMSContextType;
 }
 export default function Home({
   cmsData
 }: Props) {
-
-
-  console.log({cmsData});
 
 
   return (

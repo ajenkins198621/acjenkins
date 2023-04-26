@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.professional_summary p {
+    margin-bottom: 1rem;
+}
+
+.professional_summary p:last-child {
+    margin-bottom: 0;
+}

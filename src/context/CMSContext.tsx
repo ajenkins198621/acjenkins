@@ -1,6 +1,21 @@
 import { createContext } from 'react';
 
-const defaultState = {
+export type CMSContextType = {
+    professionalExperiences: any[],
+    generalInformation: {
+        name: string,
+        tagline: string,
+        linkedInUrl: string,
+        gitHubUrl: string,
+        resumeUrl: string,
+        aboutMeTitle: string,
+        aboutMe: {
+            json: any,
+        }
+    },
+}
+
+const defaultState : CMSContextType = {
     professionalExperiences: [],
     generalInformation: {
         name: '',

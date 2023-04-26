@@ -21,7 +21,7 @@ export default function ProfessionalSummary(): JSX.Element {
                         height={300}                  
                     />
                 </div>
-                <div className="w-full lg:w-3/4">
+                <div className="w-full lg:w-3/4 professional_summary">
                     {
                         documentToReactComponents(aboutMe.json as any)
                     }

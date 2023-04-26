@@ -2,13 +2,25 @@ import Head from 'next/head';
 import Header from '@/components/Header';
 import ProfessionalSummary from '@/components/ProfessionalSummary';
 import { ResumeContext, initialResume } from '@/context/ResumeContext';
+import { CMSContext } from '@/context/CMSContext';
 import Experience from '@/components/Experience';
 import Education from '@/components/Education';
 import Skills from '@/components/Skills';
 import MobileMenu from '@/components/MobileMenu';
 import { SiteProvider } from '@/context/siteContext';
+import { AssetFields, createClient  } from 'contentful';
 
-export default function Home() {
+type Props = {
+  cmsData: {[key: string] : AssetFields[]};
+}
+export default function Home({
+  cmsData
+}: Props) {
+
+
+  console.log({cmsData});
+
+
   return (
     <>
       <Head>
@@ -23,18 +35,85 @@ export default function Home() {
 
       <main className=''>
         <SiteProvider>
-          <ResumeContext.Provider value={initialResume}>
-            <MobileMenu />
-            <Header />
-            <div className='resume-body'>
-              <ProfessionalSummary />
-              <Experience />
-              <Education />
-              <Skills />
-            </div>
-          </ResumeContext.Provider>
+          <CMSContext.Provider value={cmsData}>
+            <ResumeContext.Provider value={initialResume}>
+              <MobileMenu />
+              <Header />
+              <div className='resume-body'>
+                <ProfessionalSummary />
+                <Experience />
+                <Education />
+                <Skills />
+              </div>
+            </ResumeContext.Provider>
+          </CMSContext.Provider>
         </SiteProvider>
       </main>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const client = createClient({
+      space: process.env.CONTENTFUL_SPACE_ID as string,
+      environment: 'master', // defaults to 'master' if not set
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string
+  });
+
+  // Retrieve the list of blog posts from Contentful
+  const getResumePageData = async () => {
+      const query = `
+      {
+        professionalExperiencesCollection {
+          items {
+            cardImage {
+              fileName
+            },
+            jobTitle,
+            company,
+            startDate,
+            endDate,
+            location,
+            description {
+              json
+            }
+          }
+        },
+        generalInformation(id: "21GLau1E9jwEZSyhbyDYWO") {
+          name,
+          tagline,
+          linkedInUrl,
+          gitHubUrl,
+          resumeUrl,
+          aboutMeTitle,
+          aboutMe {
+            json
+          }
+        }
+      }
+`;
+
+
+      const response = await fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // Authenticate the request
+          Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+        },
+        // send the GraphQL query
+        body: JSON.stringify({ query })
+      });
+
+      const { data } = await response.json();
+
+      return data;
+
+  };
+
+  return {
+    props: {
+      cmsData: await getResumePageData(),
+    },
+  }
 }

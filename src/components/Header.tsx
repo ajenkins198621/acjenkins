@@ -26,12 +26,12 @@ export default function Header(): JSX.Element {
     } = useHeader();
 
     return (
-        <header className='sticky top-0 z-10 bg-gradient-to-bl from-sky-500 to-sky-700 border-sky-900 drop-shadow-xl w-full'>
-            <div className='container py-4 mb-12 text-sky-400 font-bold'>
+        <header className='sticky top-0 z-10 bg-gray-100 drop-shadow-xl w-full'>
+            <div className='container py-4 mb-12 text-slate-500 font-bold'>
                 <div className='flex justify-between items-center lg:items-end'>
                     <div>
                         <h1
-                            className='text-3xl lg:text-5xl text-sky-100 font-black -mb-2 flex items-center'
+                            className='text-3xl lg:text-5xl text-slate-800 -mb-2 flex items-center'
                             onMouseOver={() => {
                                 setIsHovered(true);
                             }}
@@ -64,9 +64,9 @@ export default function Header(): JSX.Element {
                             className="space-y-1.5 cursor-pointer"
                             onClick={() => dispatch({ type: 'TOGGLE_MOBILE_MENU' })}
                         >
-                            <span className="block rounded h-1 w-8 animate-pulse bg-sky-400"></span>
-                            <span className="block rounded h-1 w-8 animate-pulse bg-sky-400"></span>
-                            <span className="block rounded h-1 w-8 animate-pulse bg-sky-400"></span>
+                            <span className="block rounded h-1 w-8 animate-pulse bg-slate-400"></span>
+                            <span className="block rounded h-1 w-8 animate-pulse bg-slate-400"></span>
+                            <span className="block rounded h-1 w-8 animate-pulse bg-slate-400"></span>
                         </div>
                     </div>
                     <div className="hidden lg:flex space-x-4">
@@ -76,7 +76,7 @@ export default function Header(): JSX.Element {
                                     key={name}
                                     href={url}
                                     target={'_blank'}
-                                    className="bg-sky-200 hover:bg-sky-300 text-sky-700 hover:text-sky-900 py-2 px-6 rounded-lg flex items-center"
+                                    className="bg-slate-300 hover:bg-slate-700 text-slate-800 hover:text-slate-200 py-2 px-6 rounded-lg flex items-center"
                                 >
                                     <FontAwesomeIcon className='w-5 h-5 mr-2' icon={icon} />
                                     {name}

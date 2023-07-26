@@ -6,13 +6,14 @@ interface IProps {
 }
 
 export default function SkillRow({ skill }: IProps): JSX.Element {
-    const { name, level } = skill;
+    const { name, level, icon } = skill;
 
     return (
         <div className="w-1/2 sm:w-1/3 lg:w-1/4 text-center">
             <div className="m-2 py-6 border rounded">
-            <p className="text-lg font-bold text-amber-800 leading-tight">{name}</p>
-            <em className="text-sm">{level}</em>
+                {!!icon && <div className="flex justify-center text-5xl">{icon}</div>}
+                <p className="text-lg font-bold text-amber-800 leading-tight">{name}</p>
+                <em className="text-sm">{level}</em>
             </div>
         </div>
     )

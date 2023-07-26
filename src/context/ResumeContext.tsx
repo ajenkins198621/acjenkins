@@ -3,6 +3,8 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faFile } from '@fortawesome/free-solid-svg-icons';
 import { createContext } from 'react';
+import { BiLogoJavascript, BiLogoReact, BiLogoRedux, BiLogoTypescript, BiLogoTailwindCss, BiLogoNodejs } from 'react-icons/bi';
+import { SiNextdotjs, SiJest, SiPhp, SiLaravel, SiMysql  } from 'react-icons/si';
 
 export interface IResume {
     name: string;
@@ -41,6 +43,7 @@ export interface IEducation {
 export interface ISkill {
     name: string;
     level: number|string;
+    icon?: JSX.Element;
 }
 
 export const initialResume: IResume = {
@@ -171,71 +174,60 @@ export const initialResume: IResume = {
     skills: [
         {
             name: "JavaScript",
-            level: "Experienced"
+            level: "Experienced",
+            icon: <BiLogoJavascript />
         },
         {
             name: "ReactJS",
-            level: "Experienced"
+            level: "Experienced",
+            icon: <BiLogoReact />
         },
         {
             name: "Redux",  
-            level: "Experienced"
+            level: "Experienced",
+            icon: <BiLogoRedux />
         },
         {
             name: "TypeScript",
-            level: "Skillful"
+            level: "Skillful",
+            icon: <BiLogoTypescript />,
         },
         {
             name: "Next.js",
-            level: "Skillful"
+            level: "Skillful",
+            icon: <SiNextdotjs />
         },
         {
-            name: "jQuery",
-            level: "Experienced"
-        },
-        {
-            name: "RequireJS",
-            level: "Skillful"
-        },
-        {
-            name: "Front-end Unit Testing",
-            level: "Beginner"
-        },
-        {
-            name: "HTML",
-            level: "Experienced"
-        },
-        {
-            name: "CSS / Less / Sass",
-            level: "Experienced"
+            name: "Unit Testing",
+            level: "Skillful",
+            icon: <SiJest />
         },
         {
             name: "Tailwind CSS",
-            level: "Skillful"
-        },
-        {
-            name: "Storybook",
-            level: "Novice"
+            level: "Skillful",
+            icon: <BiLogoTailwindCss />
         },
         {
             name: "Node.js",
-            level: "Beginner"
+            level: "Beginner",
+            icon: <BiLogoNodejs />
         },
         {
             name: "PHP",
-            level: "Experienced"
+            level: "Experienced",
+            icon: <SiPhp />
         },
         {
             name: "Laravel Framework",
-            level: "Experienced"
+            level: "Experienced",
+            icon: <SiLaravel />
+
         },
         {
             name: "MySQL",
-            level: "Experienced"
-        },
-        {
-            name: "Backend Unit Testing",
-            level: "Experienced"
+            level: "Experienced",
+            icon: <SiMysql />
+
         },
         {
             name: "REST APIs",

@@ -64,7 +64,7 @@ export const initialResume: IResume = {
         },
         {
             name: "Resume",
-            url: "https://resume.io/r/3wlNvJLMB",
+            url: "https://resume.io/r/uCJjsnoDX",
             icon: faFile
         }
 

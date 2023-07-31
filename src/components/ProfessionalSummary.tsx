@@ -10,7 +10,7 @@ export default function ProfessionalSummary(): JSX.Element {
     const { generalInformation: { name, aboutMe, aboutMeTitle } } = useContext(CMSContext);
 
     return (
-        <div className="text-3xl py-12 lg:py-24 text-white bg-black relative overflow-x-hidden">
+        <div className="text-3xl py-12 lg:py-24 text-white bg-black relative overflow-hidden">
             <div className="lg:container">
                 <div className="flex flex-col lg:flex-row items-center">
                     <Image
@@ -23,11 +23,11 @@ export default function ProfessionalSummary(): JSX.Element {
                     <div className='flex flex-col w-full mt-6 lg:mt-0 font-bold text-sm lg:text-2xl ml-12'>
                         <TypeAnimation
                             sequence={[
-                                "👋 Hi, I&apos;m Austin.",
+                                "👋 Hi, I'm Austin.",
                                 1000,
-                                "👋 Hi, I&apos;m a Software Engineer.",
+                                "👋 Hi, I'm a Software Engineer.",
                                 1000,
-                                "👋 Hi, I&apos;m a Front-End Engineer.",
+                                "👋 Hi, I'm a Front-End Engineer.",
                                 3000
                             ]}
                             wrapper="span"

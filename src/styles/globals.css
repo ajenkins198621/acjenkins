@@ -2,10 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background-color: #1DE1B6;
+}
+
 .professional_summary p, .professional_experience li {
     margin-bottom: 1rem;
 }
 
 .professional_summary p:last-child, .professional_experience li:last-child {
     margin-bottom: 0;
+}
+
+.typed-text::after {
+    color: rgb(225, 29, 72);
+}
+
+.bg-green {
+    background-color: #1DE1B6;
+}
+
+.text-green {
+    color: #1DE1B6
+}
+
+.border-green {
+    border-color: rgb(29, 225, 182);
 }

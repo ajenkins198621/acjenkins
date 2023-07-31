@@ -27,11 +27,11 @@ export default function Header(): JSX.Element {
 
     return (
         <header className='sticky top-0 z-10 bg-gray-100 drop-shadow-xl w-full'>
-            <div className='container py-4 mb-12 text-slate-500 font-bold'>
-                <div className='flex justify-between items-center lg:items-end'>
+            <div className='container py-4 text-slate-500 font-bold'>
+                <div className='flex justify-between items-center'>
                     <div>
                         <h1
-                            className='text-3xl lg:text-5xl text-slate-800 -mb-2 flex items-center'
+                            className='text-3xl lg:text-5xl text-rose-600 -mb-2 flex items-center'
                             onMouseOver={() => {
                                 setIsHovered(true);
                             }}
@@ -76,7 +76,7 @@ export default function Header(): JSX.Element {
                                     key={name}
                                     href={url}
                                     target={'_blank'}
-                                    className="bg-slate-300 hover:bg-slate-700 text-slate-800 hover:text-slate-200 py-2 px-6 rounded-lg flex items-center"
+                                    className="bg-green hover:bg-slate-700 text-slate-800 hover:text-slate-200 py-2 px-6 rounded-lg flex items-center"
                                 >
                                     <FontAwesomeIcon className='w-5 h-5 mr-2' icon={icon} />
                                     {name}

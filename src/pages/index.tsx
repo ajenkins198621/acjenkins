@@ -8,7 +8,7 @@ import Education from '@/components/Education';
 import Skills from '@/components/Skills';
 import MobileMenu from '@/components/MobileMenu';
 import { SiteProvider } from '@/context/siteContext';
-import { AssetFields, createClient  } from 'contentful';
+import { AssetFields, createClient } from 'contentful';
 
 type Props = {
   cmsData: CMSContextType;
@@ -36,8 +36,8 @@ export default function Home({
             <ResumeContext.Provider value={initialResume}>
               <MobileMenu />
               <Header />
-              <div className='resume-body'>
                 <ProfessionalSummary />
+              <div className='resume-body'>
                 <Experience />
                 <Education />
                 <Skills />
@@ -52,14 +52,14 @@ export default function Home({
 
 export async function getStaticProps() {
   const client = createClient({
-      space: process.env.CONTENTFUL_SPACE_ID as string,
-      environment: 'master', // defaults to 'master' if not set
-      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string
+    space: process.env.CONTENTFUL_SPACE_ID as string,
+    environment: 'master', // defaults to 'master' if not set
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string
   });
 
   // Retrieve the list of blog posts from Contentful
   const getResumePageData = async () => {
-      const query = `
+    const query = `
       {
         professionalExperiencesCollection(order: order_ASC) {
           items {
@@ -92,20 +92,20 @@ export async function getStaticProps() {
 `;
 
 
-      const response = await fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // Authenticate the request
-          Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
-        },
-        // send the GraphQL query
-        body: JSON.stringify({ query })
-      });
+    const response = await fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // Authenticate the request
+        Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+      },
+      // send the GraphQL query
+      body: JSON.stringify({ query })
+    });
 
-      const { data } = await response.json();
+    const { data } = await response.json();
 
-      return data;
+    return data;
 
   };
 

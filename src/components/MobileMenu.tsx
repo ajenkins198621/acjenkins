@@ -34,9 +34,9 @@ export default function MobileMenu(): JSX.Element {
             >
                 <a
                     onClick={toggleMobileMenu}
-                    className="absolute top-6 right-6 cursor:pointer"
+                    className="absolute top-6 right-12 cursor:pointer"
                 >
-                    <FontAwesomeIcon className='w-10 h-10 text-gray-400 focus:text-gray-700' icon={faX} />
+                    <FontAwesomeIcon className='w-10 h-10 text-rose-600 focus:text-gray-700' icon={faX} />
                 </a>
                 <ul className='flex flex-col h-full w-full mt-16'>
 
@@ -44,7 +44,7 @@ export default function MobileMenu(): JSX.Element {
                         <li key={index} className='my-3'>
                             <a
                                 href={link.url}
-                                className='pl-4 py-3 text-2xl font-bold text-sky-700 focus:text-sky-900 flex items-center w-full focus:bg-sky-200'
+                                className='pl-4 py-3 text-2xl font-bold text-rose-600 focus:text-green flex items-center w-full focus:bg-sky-200'
                                 onClick={toggleMobileMenu}
                             >
                                 <FontAwesomeIcon className='w-8 h-8 mr-2' icon={link.icon} />

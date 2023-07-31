@@ -17,7 +17,7 @@ export default function OrganizationDetails({
 }: IProps): JSX.Element {
     return (
         <>
-            <h3 className="text-lg font-bold text-amber-800 leading-tight">
+            <h3 className="text-lg font-bold text-rose-600 leading-tight">
                 {title}
             </h3>
             <h3 className="text-lg text-gray-600">{company}</h3>

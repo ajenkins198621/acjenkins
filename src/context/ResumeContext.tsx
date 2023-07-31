@@ -48,7 +48,7 @@ export interface ISkill {
 
 export const initialResume: IResume = {
     name: "Austin Jenkins",
-    title: "Senior Front-end Software Engineer",
+    title: "Front-end Software Engineer",
     address: {
         city: "Denver",
         state: "CO"

@@ -10,7 +10,7 @@ export default function ProfessionalSummary(): JSX.Element {
     const { generalInformation: { name, aboutMe, aboutMeTitle } } = useContext(CMSContext);
 
     return (
-        <div className="text-3xl py-12 lg:py-24 text-white bg-black relative">
+        <div className="text-3xl py-12 lg:py-24 text-white bg-black relative overflow-x-hidden">
             <div className="lg:container">
                 <div className="flex flex-col lg:flex-row items-center">
                     <Image
@@ -23,12 +23,11 @@ export default function ProfessionalSummary(): JSX.Element {
                     <div className='flex flex-col w-full mt-6 lg:mt-0 font-bold text-sm lg:text-2xl ml-12'>
                         <TypeAnimation
                             sequence={[
-                                // Same substring at the start will only be typed out once, initially
-                                "👋 Hi, I'm Austin.",
-                                1000, // wait 1s before replacing "Mice" with "Hamsters"
-                                "👋 Hi, I'm a Software Engineer.",
+                                "👋 Hi, I&apos;m Austin.",
                                 1000,
-                                "👋 Hi, I'm a Front-End Engineer.",
+                                "👋 Hi, I&apos;m a Software Engineer.",
+                                1000,
+                                "👋 Hi, I&apos;m a Front-End Engineer.",
                                 3000
                             ]}
                             wrapper="span"
@@ -39,7 +38,7 @@ export default function ProfessionalSummary(): JSX.Element {
                             className="typed-text"
                         />
                         <p className='font-bold text-rose-600 w-4/5 lg:w-full'>I enjoy building web applications for growth-stage companies.</p>
-                        <p className='font-light text-green w-4/5 lg:w-full'>I currently work at <strong className="font-black">Vail Resorts</strong> as a <strong className="font-black">Senior Front-end Developer</strong> and earning my Master's Degree in Computer Science.</p>
+                        <p className='font-light text-green w-4/5 lg:w-full'>I currently work at <strong className="font-black">Vail Resorts</strong> as a <strong className="font-black">Senior Front-end Developer</strong> and earning my Master&apos;s Degree in Computer Science.</p>
 
                     </div>
                 </div>

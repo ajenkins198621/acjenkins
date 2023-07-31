@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import { IconType } from 'react-icons';
 
 export type CMSContextType = {
     professionalExperiencesCollection: {
@@ -29,6 +30,7 @@ export type ProfessionalExperience = {
     description: {
         json: any,
     },
+    Icon?: IconType,
 }
 
 const defaultState : CMSContextType = {

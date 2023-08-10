@@ -1,0 +1,200 @@
+@use 'variables.scss';
+
+.container {
+    margin: 0 auto;
+    position: relative;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+        padding-left: 0;
+        padding-right: 0;
+        width: 720px;
+    }
+
+    @media screen and (min-width: 992px) {
+        width: 960px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 1140px;
+    }
+
+    @media screen and (min-width: 1400px) {
+        width: 1200px;
+    }
+}
+
+.navigation-container {
+    top: 40px;
+    position: relative;
+    width: 100%;
+    height: 90px;
+}
+
+.navigation, .navigation-shadow {
+    box-sizing: border-box;
+    border-radius: 40px;
+    height: 90px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.navigation-shadow {
+    background-color: variables.$light-shadow-color;
+    border-radius: 40px;
+    transform: translate(-10px, 10px);
+    z-index: 1;
+}
+
+.navigation-logo {
+    font-family: variables.$nunito-font;
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: 700;
+    
+    span {
+        font-weight: 300;
+
+        &.navigation-logo-left-caret {
+            margin-right: 10px;
+        }
+        &.navigation-logo-right-caret {
+            margin-left: 10px;
+        }
+    }
+    
+}
+
+.navigation {
+    align-items: center;
+    background-color: variables.$blue-color;
+    color: variables.$light-color;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 33px;
+    padding-right: 33px;
+    z-index: 2;
+
+    ul.desktop-navigation {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media screen and (max-width: variables.$screen-xs-max) {
+            display: none;
+        }
+
+        li {
+            box-sizing: border-box;
+
+            &:not(:last-child) {
+                margin-right: 20px;
+                @media screen and (min-width: variables.$screen-md) {
+                    margin-right: 34px;
+                }
+            }
+
+            a {
+                border-bottom: none;
+                font-size: 1.8rem;
+                font-weight: 400;
+                transition: padding 0.5s ease-in-out, border-bottom 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+
+                @media screen and (min-width: variables.$screen-md) {
+                    font-size: 2.4rem;
+                }
+
+                &.active {
+                    color: variables.$light-color;
+                    font-weight: 400;
+                    border-bottom: 5px solid variables.$light-color;
+                    padding-bottom: 5px;
+                    text-shadow: #000 -3px 3px 2px;
+                }
+                &:hover {
+                    &:not(.active) {
+                        border-bottom: 1px solid variables.$light-color;
+                        padding-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .mobile-navigation-hamburger-menu {
+        @media screen and (min-width: variables.$screen-xs-max) {
+            display: none;
+        }
+    }
+}
+
+.mobile-navigation {
+    background: variables.$blue-color;
+    height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+    right: -70%;
+    top: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+    width: 70%;
+    z-index: 1000;
+
+    ul {
+        list-style: none;
+        padding-top: 80px;
+
+        li {
+            list-style-type: none;
+
+            a {
+                color: variables.$light-color;
+                display: block;
+                font-size: 3.2rem;
+                padding: 10px 20px;
+                text-decoration: none;
+                text-align: right;
+        
+            }
+        }
+    }
+
+    &.menu-active {
+        transform: translateX(-100%); /* Bring it back on screen when active */
+        box-shadow: variables.$blue-shadow-color -5px 5px 15px;
+    }
+
+    .mobile-navigation-close {
+        position: absolute;
+        right: 16px;
+        top: 20px;
+    }
+}
+
+.mobile-menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: variables.$brown-color; /* Adjust the opacity as desired */
+    opacity: 0.5;
+    z-index: 999; /* Below the menu but above other content */
+    display: none; /* Hidden by default */
+ 
+    &.active {
+        display: block;
+    }
+}

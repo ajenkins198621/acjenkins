@@ -1,0 +1,56 @@
+@use 'variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Nova+Script&family=Nunito:wght@300;400;700;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    background-color: variables.$light-color;
+    font-family: variables.$nunito-font;
+}
+
+a {
+    // remove all default styling
+    color: inherit;
+    text-decoration: none;
+}
+button {
+    // remove all styling
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.container {
+    box-sizing: border-box;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+        padding-left: 0;
+        padding-right: 0;
+        width: 720px;
+    }
+
+    @media screen and (min-width: 992px) {
+        width: 960px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 1140px;
+    }
+
+    @media screen and (min-width: 1400px) {
+        width: 1200px;
+    }
+}

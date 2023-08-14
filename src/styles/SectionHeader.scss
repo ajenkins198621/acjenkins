@@ -1,0 +1,96 @@
+@use 'variables.scss';
+
+$section-header-width-mobile: 320px;
+$section-header-width: 480px;
+
+.section-header-container {
+    display: block;
+    height: 100px;
+    margin: -1px auto 0 auto;
+    width: $section-header-width-mobile;
+
+    @media screen and (min-width: variables.$screen-sm) {
+        width: $section-header-width;
+    }
+
+    &-inner {
+        height: 100%;
+        position: relative;
+    }
+
+    .section-header,
+    .section-header-shadow {
+        box-sizing: border-box;
+        height: 100px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: $section-header-width-mobile;
+
+        @media screen and (min-width: variables.$screen-sm) {
+            width: $section-header-width;
+        }    
+    }
+
+    &.section-header-brown {
+        .section-header {
+            background-color: variables.$brown-color;
+        }
+        .section-header-shadow {
+            background-color: variables.$blue-shadow-color;
+        }
+    }
+
+    &.section-header-blue {
+        .section-header {
+            background-color: variables.$blue-color;
+        }
+        .section-header-shadow {
+            background-color: variables.$light-shadow-color;
+        }
+    }
+
+
+    .section-header-shadow {
+        transform: skew(20deg) translate(-10px, 10px);
+    }
+
+    .section-header {
+        transform: skew(20deg);
+        z-index: 1;
+
+
+        &.section-header-blue {
+            background-color: variables.$blue-color;
+        }
+
+        .section-header-content {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            font-family: variables.$nova-script-font;
+            font-size: 3.2rem;
+            height: 100%;
+            justify-content: center;
+            transform: skew(-20deg);
+
+            @media screen and (min-width: variables.$screen-sm) {
+                font-size: 4rem;
+            }
+            
+            &::after {
+                content: "";
+                display: block;
+                width: 50%;
+                height: 5px;
+                background-color: variables.$light-color;
+                border-radius: 10px;
+                margin-top: 10px;
+
+                @media screen and (min-width: variables.$screen-sm) {
+                    height: 8px;
+                }
+            }
+        }
+    }
+}

@@ -10,6 +10,8 @@ import MobileMenu from '@/components/MobileMenu';
 import { SiteProvider } from '@/context/siteContext';
 import { AssetFields, createClient } from 'contentful';
 import Navigation from '@/components/Navigation';
+import Hero from '@/components/Hero';
+import CurrentProjects from '@/components/CurrentProjects';
 
 export default function Redesign() {
 
@@ -28,7 +30,8 @@ export default function Redesign() {
 
       <Navigation />
       <main className=''>
-        
+        <Hero />
+        <CurrentProjects />
       </main>
     </>
   )

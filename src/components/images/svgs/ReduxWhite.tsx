@@ -1,7 +1,7 @@
 export default function ReduxWhite() {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" fill="none">
-            <g clip-path="url(#clip0_79_33)">
+            <g clipPath="url(#clip0_79_33)">
                 <mask id="mask0_79_33" style={{maskType: 'luminance'}} maskUnits="userSpaceOnUse" x="0" y="0" width="41" height="41">
                     <path d="M0 0H41V41H0V0Z" fill="white" />
                 </mask>

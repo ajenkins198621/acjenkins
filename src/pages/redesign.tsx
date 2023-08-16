@@ -12,6 +12,8 @@ import { AssetFields, createClient } from 'contentful';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import CurrentProjects from '@/components/CurrentProjects';
+import ExperienceSection from '@/components/ExperienceSection';
+import SkillsSection from '@/components/SkillsSection';
 
 export default function Redesign() {
 
@@ -32,6 +34,8 @@ export default function Redesign() {
       <main className=''>
         <Hero />
         <CurrentProjects />
+        <ExperienceSection />
+        <SkillsSection />
       </main>
     </>
   )

@@ -6,6 +6,7 @@
     font-family: variables.$nunito-font;
     font-size: 1.8rem;
     padding: 100px 0;
+    position: relative;
 
     &-inner {
         padding-top: 60px;
@@ -86,7 +87,7 @@
         &.left {
             .tech-stack {
                 @media screen and (min-width: variables.$screen-md) {
-                    justify-content: end;
+                    justify-content: flex-end;
                 }        
             }
         }
@@ -153,7 +154,7 @@
             .tech-stack {
                 align-items: center;
                 display: flex;
-                justify-content: end;
+                justify-content: flex-end;
                 margin-top: 10px;
                 svg {
                     padding: 0 5px;

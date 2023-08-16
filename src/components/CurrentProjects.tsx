@@ -4,6 +4,7 @@ import SectionHeader from "./SectionHeader";
 import VailResortsImage from './images/vail-resorts-image.jpeg';
 import SwaptimalImage from './images/swaptimal-image.jpeg';
 import QuizNibbleImage from './images/quiznibble-image.jpeg';
+import DividerBottom from "./DividerBottom";
 
 export type CurrentProjectType = {
     image: StaticImageData,
@@ -26,7 +27,7 @@ export default function CurrentProjects() {
             company: 'Vail Resorts',
             label: 'Day Job',
             labelDefinition: 'This is my day job',
-            title: 'Senior Front-end Developer',
+            title: 'Senior Lead Front-end Developer',
             dates: 'Oct 2021 - Current',
             description: 'I currently work on the A/B Testing team releasing features across the 35+ public-facing e commerce resort sites.   My favorite and most challenging project to-date has been building a pass comparison selector.',
             techStack: ['React', 'JavaScript', 'TypeScript', 'Less', 'jQuery', 'Bootstrap']
@@ -73,6 +74,7 @@ export default function CurrentProjects() {
                     }
                 </div>
             </div>
+            <DividerBottom theme="light" />
         </div>
     )
 }

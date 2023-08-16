@@ -1,0 +1,168 @@
+@use 'variables.scss';
+
+.experience-container {
+    padding-bottom: 100px;
+    position: relative;
+
+    .timeline {
+        position: relative;
+        width: 100%;
+        margin: 60px auto;
+
+        // The vertical line
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 15px;
+            /* Same reasoning, but for the end circle */
+            left: 14px;
+            top: 15px;
+            /* Half of the .timeline-point height so it starts from the middle of the first circle */
+            width: 2px;
+            /* Width of the line */
+            background-color: variables.$brown-color;
+
+            @media screen and (min-width: variables.$screen-md) {
+                left: calc(50% - 1px);
+            }
+        }
+
+
+        // The top and bottom balls
+        .timeline-point {
+            width: 30px;
+            height: 30px;
+            background-color: variables.$brown-color;
+
+            @media screen and (min-width: variables.$screen-md) {
+                margin: 0 auto;
+            }
+
+            &.start,
+            &.end {
+                background-color: variables.$brown-color;
+                /* or any other color */
+                border-radius: 50%;
+            }
+
+            &.end {
+                margin-top: 40px;
+
+                @media screen and (min-width: variables.$screen-md) {
+                    margin-top: 100px;
+                }
+            }
+        }
+
+        .timeline-event {
+            position: relative;
+            padding: 15px 30px;
+
+            @media screen and (min-width: variables.$screen-md) {
+                padding: 40px 30px;
+            }
+
+            // The dots on the main line for each event
+            &::before {
+                background-color: variables.$brown-color;
+                border-radius: 50%;
+                content: '';
+                height: 10px;
+                left: 15px;
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 10px;
+
+                @media screen and (min-width: variables.$screen-md) {
+                    left: 50%;
+                    top: calc(50% + 55px);
+                }
+
+            }
+
+            .content {
+                background-color: variables.$brown-color;
+                border-radius: 15px;
+                color: variables.$light-color;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-left: 20px;
+                max-width: 100%;
+                min-height: 70px;
+                padding: 15px;
+                position: relative;
+
+                @media screen and (min-width: variables.$screen-md) {
+                    max-width: 210px;
+                    width: 50%;
+                }
+
+                @media screen and (min-width: variables.$screen-lg) {
+                    max-width: 280px;
+                }
+
+                .title {
+                    font-size: 2.4rem;
+                    font-weight: 700;
+                    margin-top: -5px;
+                }
+
+                .description {
+                    font-size: 1.8rem;
+                    font-weight: 300;
+                }
+
+                $distance-from-line: 100px;
+
+
+                svg {
+                    position: absolute;
+                    top: 50%;
+
+                    path {
+                        fill: variables.$brown-color;
+                    }
+                }
+
+                &.left {
+
+                    svg {
+                        left: 0;
+                        transform: rotate(180deg) translate(15px, 20px); // TODO rotate
+                        @media screen and (min-width: variables.$screen-md) {
+                            left: inherit;
+                            right: 0;
+                            transform: translate(15px, -20px);
+                        }
+    
+                    }
+
+                    @media screen and (min-width: variables.$screen-md) {
+                        float: left;
+                        margin-left: 80px;
+                        text-align: left;
+                        padding-right: $distance-from-line;
+                    }
+
+                }
+
+                &.right {
+                    svg {
+                        left: 0;
+                        transform: translate(-15px, -20px);
+                    }
+
+                    @media screen and (min-width: variables.$screen-md) {
+                        float: right;
+                        margin-right: 80px;
+                        text-align: right;
+                        padding-left: $distance-from-line;
+                        /* distance from the line */
+                    }
+                }
+            }
+        }
+    }
+}

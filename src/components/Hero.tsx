@@ -32,7 +32,7 @@ export default function Hero() {
                     </div>
                 </div>
             </div>
-            <DividerBottom />
+            <DividerBottom theme="blue" />
         </div>
     )
 }

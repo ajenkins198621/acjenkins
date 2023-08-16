@@ -56,9 +56,9 @@ $section-header-width: 480px;
     }
 
     .section-header {
+        color: variables.$light-color;
         transform: skew(20deg);
         z-index: 1;
-
 
         &.section-header-blue {
             background-color: variables.$blue-color;

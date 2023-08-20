@@ -14,6 +14,7 @@ import Hero from '@/components/Hero';
 import CurrentProjects from '@/components/CurrentProjects';
 import ExperienceSection from '@/components/ExperienceSection';
 import SkillsSection from '@/components/SkillsSection';
+import ContactSection from '@/components/ContactSection';
 
 export default function Redesign() {
 
@@ -36,6 +37,7 @@ export default function Redesign() {
         <CurrentProjects />
         <ExperienceSection />
         <SkillsSection />
+        <ContactSection />
       </main>
     </>
   )

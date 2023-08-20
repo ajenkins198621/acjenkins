@@ -1,0 +1,93 @@
+@use 'variables.scss';
+
+.contact-section {
+    padding: 60px 0 100px;
+    position: relative;
+
+    .links {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+
+        
+        a {
+            margin-right: 15px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .contact-form {
+        border: 2px dashed variables.$brown-color;
+        border-radius: 15px;
+        box-sizing: border-box;
+        margin: 30px auto 60px;
+        padding: 15px;
+        width: 100%;
+
+        @media screen and (min-width: variables.$screen-sm) {
+            width: 400px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+
+            label {
+
+                font-size: 1.4rem;
+                color: variables.$brown-color;
+
+                .required {
+                    color: red;
+                }
+            }
+
+            input, textarea {
+                border: 1px solid variables.$blue-shadow-color;
+                border-radius: 3px;
+                padding: 10px;
+                font-size: 1.8rem;
+                color: variables.$blue-color;
+            }
+        }
+
+        button {
+            background-color: variables.$brown-color;
+            border-radius: 3px;
+            color: variables.$light-color;
+            font-size: 1.8rem;
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+
+            &.disabled {
+                background-color: #ccc;
+                color: #999;
+                cursor: not-allowed;
+            }
+        }
+
+        .success, .error {
+            font-size: 1.8rem;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .success {
+            background-color: #d3f2d3;
+            border: 1px solid darkgreen;
+            color: darkgreen;
+        }
+
+        .error {
+            background-color: rgb(241, 208, 208);
+            border: 1px solid darkred;
+            color: darkred;
+            margin-bottom: 15px;
+        }
+    }
+}

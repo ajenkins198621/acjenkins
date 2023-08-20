@@ -1,0 +1,154 @@
+@use 'variables.scss';
+
+.skills-container {
+    background-color: variables.$blue-color;
+    font-size: 1.8rem;
+    padding: 60px 0 200px 0;
+    position: relative;
+
+    .skill-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 60px;
+
+        @media screen and (min-width: variables.$screen-md) and (max-width: variables.$screen-md-max) {
+            justify-content: space-around;
+        }
+
+        .skill-card-container {
+            display: block;
+            margin-bottom: 60px;
+            min-height: 420px;
+            position: relative;
+            width: 100%;
+
+            @media screen and (min-width: variables.$screen-sm) and (max-width: variables.$screen-sm-max) {
+                width: 340px;
+            }    
+
+            @media screen and (min-width: variables.$screen-md) and (max-width: variables.$screen-md-max) {
+                width: 400px;
+            }    
+
+            @media screen and (min-width: variables.$screen-lg) {
+                width: 350px;
+            }
+        }
+
+        .skill-card-shadow {
+            border-radius: 15px;
+            box-sizing: border-box;
+            height: 100px;
+            left: 0;
+            min-height: 100%;
+            position: absolute;
+            top: 0;
+            transform: translate(-10px, 10px);
+            width: 100%;
+            background-color: variables.$blue-shadow-color;
+            z-index: 0;
+        }
+
+        .skill-card {
+            background-color: variables.$light-color;
+            border-radius: 20px 20px 15px 15px;
+            box-sizing: content-box;
+            margin-bottom: 60px;
+            min-height: 100%;
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+
+            .skill-header {
+                background-color: variables.$brown-color;
+                border-radius: 15px 15px 0 0;
+                color: variables.$light-color;
+                font-family: variables.$nova-script-font;
+                font-size: 2.4rem;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .skill-body {
+                color: variables.$brown-color;
+                font-size: 1.8rem;
+                padding: 15px;
+                text-align: center;
+
+                .year, .project {
+                    height: 20px;
+                    width: 9px;
+                    border-radius: 3px;
+                    margin-right: 4px;
+
+                    @media screen and (max-width: 380px) {
+                        width: 6px;
+                    }
+                }
+
+                .year {
+                    background-color: variables.$brown-color;
+                }
+                .project {
+                    background-color: variables.$blue-color;
+                }
+
+                .skill-meter-name, .skill-legend-section span {
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+
+                    @media screen and (max-width: 380px) {
+                        font-weight: 400;
+                        letter-spacing: 1px;
+                    }
+                }
+
+                .skill-legend {
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-bottom: 10px;
+                    width: 100%;
+
+                    .skill-legend-section {
+                        align-items: center;
+                        display: flex;
+                    }
+
+                    .skill-legend-section-project {
+                        color: variables.$blue-color;
+                        margin-left: 15px;
+                    }
+                }
+
+
+                .skill-meter {
+                    align-items: center;
+                    background-color: variables.$light-shadow-color;
+                    border: 1px solid variables.$brown-color;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                    display: flex;
+                    height: 100%;
+                    justify-content: space-between;
+                    padding: 5px;
+                    width: 100%;
+
+                    &:not(:last-child) {
+                    margin-bottom: 10px;
+
+                    }
+
+                    .skill-meter-markers {
+                        display: flex;
+                    }
+
+                }
+            }
+        }
+
+
+    }
+}

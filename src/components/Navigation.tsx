@@ -19,7 +19,7 @@ export default function Navigation() {
     useLayoutEffect(() => {
         // Fades navigation in
         let ctx = gsap.context(() => {
-            gsap.to(navContainerRef.current, { opacity: 1, duration: 2, delay: 0.5, ease: 'power2.out' });
+            gsap.to(navContainerRef.current, { opacity: 1, duration: 4, ease: 'power2.out' });
           }, navContainerRef);
           return () => ctx.revert();
     }, []);

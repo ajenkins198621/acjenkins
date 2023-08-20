@@ -6,6 +6,7 @@ import '@/styles/CurrentProjects.scss'
 import '@/styles/SectionHeader.scss'
 import '@/styles/ExperienceSection.scss'
 import '@/styles/SkillsSection.scss'
+import '@/styles/Contact.scss'
 
 import type { AppProps } from 'next/app'
 

@@ -1,13 +1,14 @@
 @use 'variables.scss';
 
 .custom-shape-divider-bottom {
-    position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
-    overflow: hidden;
     line-height: 0;
+    margin-bottom: -1px;
+    overflow: hidden;
+    position: absolute;
     transform: rotate(180deg);
+    width: 100%;
     
     svg {
         position: relative;

@@ -1,0 +1,26 @@
+@use 'variables.scss';
+
+footer {
+    background-color: variables.$blue-color;
+    color: variables.$light-color;
+    font-family: variables.$nunito-font;
+    padding: 60px 0;
+    text-align: center;
+
+    .footer-title {
+        font-family: variables.$nova-script-font;
+        font-size: 4rem;
+        margin-bottom: 20px;
+    }
+    .footer-description {
+        font-size: 2.4rem;
+        font-weight: 400;
+    }
+
+    .copyright {
+        font-size: 1.4rem;
+        margin-top: 30px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+}

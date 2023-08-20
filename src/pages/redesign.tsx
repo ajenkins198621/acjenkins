@@ -15,6 +15,7 @@ import CurrentProjects from '@/components/CurrentProjects';
 import ExperienceSection from '@/components/ExperienceSection';
 import SkillsSection from '@/components/SkillsSection';
 import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
 
 export default function Redesign() {
 
@@ -38,6 +39,7 @@ export default function Redesign() {
         <ExperienceSection />
         <SkillsSection />
         <ContactSection />
+        <Footer />
       </main>
     </>
   )

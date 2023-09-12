@@ -2,8 +2,7 @@
 
 .hero-container {
     position: relative;
-    padding: variables.$section-padding;
-}
+    padding: 50px 0 90px;}
 
 .hero {
     align-items: center;
@@ -50,16 +49,38 @@
             font-style: normal;
             line-height: 1.2;
             margin-top: 0;
+            
+            @media screen and (max-width: variables.$screen-xs-max) {
+                font-size: 2.4rem;
+            }
+            @media screen and (min-width: variables.$screen-sm) and (max-width: variables.$screen-sm-max) {
+                font-size: 2.4rem;
+            }
         }
 
         h2 {
             font-family: variables.$nova-script-font;
             font-size: 4rem;
-            padding: 20px 0;
+            padding: 2rem 0;
+
+            @media screen and (max-width: variables.$screen-xs-max) {
+                font-size: 2.8rem;
+                padding: 1.4rem 0;
+            }
+            @media screen and (min-width: variables.$screen-sm) and (max-width: variables.$screen-sm-max) {
+                font-size: 2.8rem;
+                padding: 1.4rem 0;
+            }
         }
 
         p {
             font-size: 2.4rem;
+            @media screen and (max-width: variables.$screen-xs-max) {
+                font-size: 2.0rem;
+            }
+            @media screen and (min-width: variables.$screen-sm) and (max-width: variables.$screen-sm-max) {
+                font-size: 2.0rem;
+            }
         }
     }
 

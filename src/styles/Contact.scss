@@ -1,7 +1,7 @@
 @use 'variables.scss';
 
 .contact-section {
-    padding: 60px 0 100px;
+    padding: variables.$section-padding;
     position: relative;
 
     .links {

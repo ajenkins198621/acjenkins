@@ -1,7 +1,7 @@
 @use 'variables.scss';
 
 .experience-container {
-    padding-bottom: 100px;
+    padding: variables.$section-padding;
     position: relative;
 
     .timeline {

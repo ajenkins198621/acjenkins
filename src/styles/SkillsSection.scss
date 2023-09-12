@@ -3,7 +3,7 @@
 .skills-container {
     background-color: variables.$blue-color;
     font-size: 1.8rem;
-    padding: 60px 0 200px 0;
+    padding: variables.$section-padding;
     position: relative;
 
     .skill-cards {

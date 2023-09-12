@@ -1,5 +1,6 @@
 import ContactForm from "./ContactForm";
 import SectionHeader from "./SectionHeader";
+import useSectionObserver from '@/hooks/useSectionObserver';
 
 function LinkedInSvg() {
     return (
@@ -19,8 +20,10 @@ function GithubSvg() {
 }
 
 export default function ContactSection() {
+    const ref = useSectionObserver('contact');
+
     return (
-        <div className="contact-section">
+        <section className="contact-section" id="contact" ref={ref}>
             <div className="container">
                 <SectionHeader title="Contact Me" theme="blue" />
                 <div className="links">
@@ -33,6 +36,6 @@ export default function ContactSection() {
                 </div>
                 <ContactForm />
             </div>
-        </div>
+        </section>
     )
 }

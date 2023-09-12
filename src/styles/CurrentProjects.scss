@@ -5,7 +5,7 @@
     color: variables.$light-color;
     font-family: variables.$nunito-font;
     font-size: 1.8rem;
-    padding: 100px 0;
+    padding: variables.$section-padding;
     position: relative;
 
     &-inner {

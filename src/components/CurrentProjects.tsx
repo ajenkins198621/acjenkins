@@ -5,6 +5,7 @@ import VailResortsImage from './images/vail-resorts-image.jpeg';
 import SwaptimalImage from './images/swaptimal-image.jpeg';
 import QuizNibbleImage from './images/quiznibble-image.jpeg';
 import DividerBottom from "./DividerBottom";
+import useSectionObserver from '@/hooks/useSectionObserver';
 
 export type CurrentProjectType = {
     image: StaticImageData,
@@ -19,6 +20,7 @@ export type CurrentProjectType = {
 }
 
 export default function CurrentProjects() {
+    const ref = useSectionObserver('currentProjects');
 
     const currentProjects : CurrentProjectType[] = [
         {
@@ -58,7 +60,7 @@ export default function CurrentProjects() {
     ]
 
     return (
-        <div className="current-projects-container">
+        <section className="current-projects-container" id="projects" ref={ref}>
             <div className="container">
                 <SectionHeader title="Current Projects" theme="brown" />
 
@@ -75,6 +77,6 @@ export default function CurrentProjects() {
                 </div>
             </div>
             <DividerBottom theme="light" />
-        </div>
+        </section>
     )
 }

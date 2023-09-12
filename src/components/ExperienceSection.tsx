@@ -1,5 +1,6 @@
 import DividerBottom from "./DividerBottom";
 import SectionHeader from "./SectionHeader";
+import useSectionObserver from '@/hooks/useSectionObserver';
 
 function Arrow(props: { direction: 'left' | 'right' }) {
     return (
@@ -16,6 +17,7 @@ function Arrow(props: { direction: 'left' | 'right' }) {
 }
 
 export default function ExperienceSection() {
+    const ref = useSectionObserver('experience');
 
     const sections: {
         date: string,
@@ -56,7 +58,7 @@ export default function ExperienceSection() {
 
         ]
     return (
-        <div className="experience-container">
+        <section className="experience-container" id="experience" ref={ref}>
             <div className="container">
                 <SectionHeader title="Experience Timeline" theme="blue" />
 
@@ -87,6 +89,6 @@ export default function ExperienceSection() {
                 </div>
             </div>
             <DividerBottom theme="blue" />
-        </div>
+        </section>
     )
 }

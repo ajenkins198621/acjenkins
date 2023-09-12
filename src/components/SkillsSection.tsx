@@ -1,6 +1,7 @@
 import DividerBottom from "./DividerBottom";
 import SectionHeader from "./SectionHeader"
 import SkillCard from "./SkillCard"
+import useSectionObserver from '@/hooks/useSectionObserver';
 
 export type Skill = {
     title: string,
@@ -12,6 +13,7 @@ export type Skill = {
 };
 
 export default function SkillsSection() {
+    const ref = useSectionObserver('skills');
 
     const skills: Skill[] = [
         {
@@ -207,20 +209,16 @@ export default function SkillsSection() {
 
     ]
     return (
-        <div className="skills-container">
+        <section className="skills-container" id="skills" ref={ref}>
             <div className="container">
                 <SectionHeader title="Skills" theme="brown" />
                 <div className="skill-cards">
                     {
-                        skills.map((skill, index) => {
-                            return (
-                                <SkillCard key={index} skill={skill} />
-                            )
-                        })
+                        skills.map((skill, index) => <SkillCard key={index} skill={skill} />)
                     }
                 </div>
             </div>
             <DividerBottom theme="light" />
-        </div>
+        </section>
     )
 }

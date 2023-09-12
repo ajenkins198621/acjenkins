@@ -1,11 +1,16 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import NavigationLink from "./NavigationLink";
+import { BsFillCloudDownloadFill, BsGithub, BsLinkedin } from "react-icons/bs";
+import useScrollToSection from "@/hooks/useScrollToSection";
+import { useActiveSection } from '@/context/ActiveSectionContext';
 
 export default function Navigation() {
-    const [selectedIdx, setSelectedIdx] = useState<number>(0);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+    const { activeSection } = useActiveSection();
 
     const navContainerRef = useRef<HTMLDivElement>(null);
+    const scrollToSection = useScrollToSection();
 
     useEffect(() => {
         if (isMobileMenuOpen) {
@@ -19,13 +24,18 @@ export default function Navigation() {
     useLayoutEffect(() => {
         // Fades navigation in
         let ctx = gsap.context(() => {
-            gsap.to(navContainerRef.current, { opacity: 1, duration: 4, ease: 'power2.out' });
-          }, navContainerRef);
-          return () => ctx.revert();
+            gsap.to(navContainerRef.current, {
+                opacity: 1,
+                duration: 4,
+                position: 'sticky',
+                ease: 'power2.out'
+            });
+        }, navContainerRef);
+        return () => ctx.revert();
     }, []);
 
     const handleHover = (type: 'enter' | 'leave') => {
-        const directions : {
+        const directions: {
             left: number;
             right: number;
         } = {
@@ -36,34 +46,70 @@ export default function Navigation() {
         gsap.to('.navigation-logo-right-caret', { x: directions.right });
     }
 
-    const links = [
-        {
-            name: 'About',
-            href: '#about'
-        },
-        {
-            name: 'Projects',
-            href: '#projects'
-        },
-        {
-            name: 'Experience',
-            href: '#experience'
-        },
-        {
-            name: 'Contact',
-            href: '#contact'
-        },
-    ];
+    const links: {
+        label: string;
+        href: string;
+        activeSectionKey?: string;
+        icon?: JSX.Element;
+        target?: '_blank'
+    }[] = [
+            {
+                label: 'About',
+                href: '#about',
+                activeSectionKey: 'hero',
+            },
+            {
+                label: 'Projects',
+                href: '#projects',
+                activeSectionKey: 'currentProjects',
+            },
+            {
+                label: 'Experience',
+                href: '#experience',
+                activeSectionKey: 'experience',
+            },
+            {
+                label: 'Skills',
+                href: '#skills',
+                activeSectionKey: 'skills',
+            },
+            {
+                label: 'Contact',
+                href: '#contact',
+                activeSectionKey: 'contact',
+            },
+            {
+                label: 'LinkedIn',
+                href: process.env.LINKEDIN_PROFILE_URL as string,
+                icon: <BsLinkedin />,
+                target: '_blank',
+
+            },
+            {
+                label: 'GitHub',
+                href: process.env.GITHUB_PROFILE_URL as string,
+                icon: <BsGithub />,
+                target: '_blank',
+
+            },
+            {
+                label: 'Resume',
+                href: process.env.RESUME_URL as string,
+                icon: <BsFillCloudDownloadFill />,
+                target: '_blank',
+            }
+        ];
+
+        console.log({activeSection});
 
     return (
-        <div className="container">
-            <div
-                className="navigation-container"
-                onMouseEnter={() => handleHover('enter')}
-                onMouseLeave={() => handleHover('leave')}
-                ref={navContainerRef}
-
-            >
+        <div
+            className="navigation-container"
+            onMouseEnter={() => handleHover('enter')}
+            onMouseLeave={() => handleHover('leave')}
+            ref={navContainerRef}
+        >
+            <div className="container">
                 <div className="navigation-shadow" />
                 <nav className='navigation'>
                     <div className="navigation-logo">
@@ -75,17 +121,16 @@ export default function Navigation() {
                     </div>
                     <ul className="desktop-navigation">
                         {
-                            links.map(({ name, href }, idx) => (
-                                <li key={href}>
-                                    <a
-                                        className={selectedIdx === idx ? 'active' : ''}
+                            links.map(({ label, href, icon, target, activeSectionKey }, idx) => (
+                                <li key={idx}>
+                                    <NavigationLink
+                                        label={label}
                                         href={href}
-                                        onClick={() => {
-                                            setSelectedIdx(idx)
-                                        }}
-                                    >
-                                        {name}
-                                    </a>
+                                        icon={icon}
+                                        target={target}
+                                        className={activeSection === activeSectionKey ? 'active' : ''}
+                                        onClick={() => scrollToSection(href)}
+                                    />
                                 </li>
                             ))
                         }
@@ -115,15 +160,15 @@ export default function Navigation() {
 
                     <ul>
                         {
-                            links.map(({ name, href }, idx) => (
-                                <li key={href}>
+                            links.map(({ label, href }, idx) => (
+                                <li key={idx}>
                                     <a
                                         href={href}
                                         onClick={() => {
                                             setIsMobileMenuOpen(false)
                                         }}
                                     >
-                                        {name}
+                                        {label}
                                     </a>
                                 </li>
                             ))

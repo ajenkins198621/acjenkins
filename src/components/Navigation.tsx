@@ -100,8 +100,6 @@ export default function Navigation() {
             }
         ];
 
-        console.log({activeSection});
-
     return (
         <div
             className="navigation-container"

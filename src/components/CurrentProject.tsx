@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import { CurrentProjectType } from './CurrentProjects';
 import CurrentProjectIcons from './CurrentProjectIcons';
+import AnimateDual from './AnimateDual';
 
 interface IProps {
     project: CurrentProjectType;
@@ -27,47 +28,49 @@ export default function CurrentProject({
 
     return (
         <div className={`current-project-row ${layout}`}>
-            <div className="current-project-image-section">
-                <Image
-                    className='current-project-image'
-                    src={image}
-                    alt={imageAlt}
-                />
-                <span className='current-project-image-text'>
-                    {company}
-                </span>
-            </div>
-            <div className="current-project-description-section">
-                {
-                    label && (
-                        <div className='label'>
-                            {label}
-                            {/* <span className='label-definition'>
+            <AnimateDual>
+                <div className="current-project-image-section">
+                    <Image
+                        className='current-project-image'
+                        src={image}
+                        alt={imageAlt}
+                    />
+                    <span className='current-project-image-text'>
+                        {company}
+                    </span>
+                </div>
+                <div className="current-project-description-section">
+                    {
+                        label && (
+                            <div className='label'>
+                                {label}
+                                {/* <span className='label-definition'>
                                     {labelDefinition}
                                 </span> */}
-                        </div>
-                    )
-                }
+                            </div>
+                        )
+                    }
 
-                {
-                    title || dates ? (
-                        <div className='title-container'>
-                            <div className='title'>
-                                {title}
+                    {
+                        title || dates ? (
+                            <div className='title-container'>
+                                <div className='title'>
+                                    {title}
+                                </div>
+                                <div className='dates'>
+                                    {dates}
+                                </div>
                             </div>
-                            <div className='dates'>
-                                {dates}
-                            </div>
-                        </div>
-                    ) : null
-                }
-                <div className='description'>
-                    {description}
+                        ) : null
+                    }
+                    <div className='description'>
+                        {description}
+                    </div>
+                    <div className='tech-stack'>
+                        <CurrentProjectIcons icons={techStack} />
+                    </div>
                 </div>
-                <div className='tech-stack'>
-                    <CurrentProjectIcons icons={techStack} />
-                </div>
-            </div>
+            </AnimateDual>
         </div>
     )
 }

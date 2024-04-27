@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import NavigationLink from "./NavigationLink";
 import { BsFillCloudDownloadFill, BsGithub, BsLinkedin } from "react-icons/bs";
@@ -21,7 +21,7 @@ export default function Navigation() {
         }
     }, [isMobileMenuOpen]);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         // Fades navigation in
         let ctx = gsap.context(() => {
             gsap.to(navContainerRef.current, {

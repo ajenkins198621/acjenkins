@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, cloneElement, Children } from "react";
+import { useEffect, useRef, cloneElement, Children } from "react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { gsap } from "gsap/dist/gsap";
 
@@ -14,13 +14,13 @@ export default function AnimateDual({
 
 
 
-    if(Children.toArray(children).length !== 2) throw new Error('AnimateDual must have exactly 2 children');
+    if (Children.toArray(children).length !== 2) throw new Error('AnimateDual must have exactly 2 children');
 
     const leftRef = useRef<HTMLDivElement>(null);
     const rightRef = useRef<HTMLDivElement>(null);
 
-    useLayoutEffect(() => {
-        if(leftRef.current) {
+    useEffect(() => {
+        if (leftRef.current) {
             gsap.set(leftRef.current, { autoAlpha: 0, x: '-100%' });
             gsap.to(leftRef.current, {
                 autoAlpha: 1,
@@ -34,7 +34,7 @@ export default function AnimateDual({
                 }
             });
         }
-        if(rightRef.current) {
+        if (rightRef.current) {
             gsap.set(rightRef.current, { autoAlpha: 0, x: '100%' });
             gsap.to(rightRef.current, {
                 autoAlpha: 1,
@@ -50,7 +50,7 @@ export default function AnimateDual({
         }
     }, []);
 
-    const childrenWithRefs = Children.map(children, (child : JSX.Element, index) => {
+    const childrenWithRefs = Children.map(children, (child: JSX.Element, index) => {
         return cloneElement(child, { ref: index === 0 ? leftRef : rightRef });
     });
 

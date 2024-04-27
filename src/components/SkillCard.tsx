@@ -30,12 +30,12 @@ export default function SkillCard({
                             <div className="skill-meter" key={index}>
                                 <div className="skill-meter-markers">
                                     {
-                                        [...Array(skill.years)].map(year => <div key={year} className="year" />)
+                                        [...Array(skill.years)].map((year, idx) => <div key={idx} className="year" />)
                                     }
 
                                     {
-                                        [...Array(skill.projects === 'Many' ? 8 : skill.projects)].map(project => (
-                                            <div key={project} className="project" />
+                                        [...Array(skill.projects === 'Many' ? 8 : skill.projects)].map((project, idx) => (
+                                            <div key={idx} className="project" />
                                         ))
                                     }
                                 </div>

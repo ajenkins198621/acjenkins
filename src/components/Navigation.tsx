@@ -80,21 +80,21 @@ export default function Navigation() {
             },
             {
                 label: 'LinkedIn',
-                href: process.env.LINKEDIN_PROFILE_URL as string,
+                href: 'https://www.linkedin.com/in/austincjenkins/',
                 icon: <BsLinkedin />,
                 target: '_blank',
 
             },
             {
                 label: 'GitHub',
-                href: process.env.GITHUB_PROFILE_URL as string,
+                href: "https://github.com/ajenkins198621",
                 icon: <BsGithub />,
                 target: '_blank',
 
             },
             {
                 label: 'Resume',
-                href: process.env.RESUME_URL as string,
+                href: "https://docs.google.com/document/d/1NUSrxPuiOLH8K0OAkDzdXK9eb25I1Zzr0g6teEKfnUg/edit?usp=sharing",
                 icon: <BsFillCloudDownloadFill />,
                 target: '_blank',
             }

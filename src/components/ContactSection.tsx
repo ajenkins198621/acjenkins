@@ -27,10 +27,10 @@ export default function ContactSection() {
             <div className="container">
                 <SectionHeader title="Contact Me" theme="blue" />
                 <div className="links">
-                    <a href={process.env.LINKEDIN_PROFILE_URL} title="View my LinkedIn profile">
+                    <a href="https://www.linkedin.com/in/austincjenkins/" title="View my LinkedIn profile">
                         <LinkedInSvg />
                     </a>
-                    <a href={process.env.GITHUB_PROFILE_URL} title="Visit my Github">
+                    <a href="https://github.com/ajenkins198621" title="Visit my Github">
                         <GithubSvg />
                     </a>
                 </div>
